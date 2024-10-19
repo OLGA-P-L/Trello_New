@@ -20,12 +20,14 @@ public class BoardsPage extends BasePage{
 
     @FindBy(xpath = "//button[@data-testid='create-board-submit-button']")
     WebElement btnCreateSubmit;
+
     public BoardsPage typeBoardTitle(BoardDTO board){
         btnCreateBoard.click();
         inputBoardTitle.sendKeys(board.getBoardTitle());
         return this;
     }
     public PersonalBoardPage clickBtnCreateSubmitPositive(){
+pause(5);
         btnCreateSubmit.click();
         return new PersonalBoardPage(driver);
     }

@@ -1,5 +1,6 @@
 package manager;
 
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,12 +10,9 @@ import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+    @Getter
     private WebDriver driver;
     private ChromeOptions chromeOptions;
-
-    public WebDriver getDriver(){
-        return driver;
-    }
 
     @BeforeMethod
     public void setUp(){

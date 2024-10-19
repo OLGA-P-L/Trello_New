@@ -7,10 +7,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
+
 import java.util.Random;
 
-public class BoardsTests extends ApplicationManager {
-
+public class BoardsNewTests extends ApplicationManager {
 
     UserDTO user = UserDTO.builder()
             .email("loyolya@gmail.com")
@@ -48,3 +48,5 @@ public class BoardsTests extends ApplicationManager {
                 .clickBtnCreateSubmitNegative();
     }
 }
+
+
