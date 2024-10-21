@@ -30,7 +30,6 @@ public class BoardsPage extends BasePage{
     public BoardsPage typeBoardTitle(BoardDTO board){
         btnCreateBoard.click();
         inputBoardTitle.sendKeys(board.getBoardTitle());
-        pause(5000);
         return this;
     }
     public PersonalBoardPage clickBtnCreateSubmitPositive(){
@@ -45,7 +44,7 @@ pause(5000);
     }
 
     public boolean isElementClickable_btnCreateSubmit(){
-        return isElementClickable(btnCreateSubmit, 3);
+        return isElementClickable(btnCreateSubmit, 10);
     }
 
     public boolean isTextPopUpPresent(){

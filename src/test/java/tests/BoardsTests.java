@@ -11,6 +11,7 @@ import pages.BoardsPage;
 import pages.HomePage;
 import pages.PersonalBoardPage;
 
+import java.lang.reflect.Method;
 import java.util.Random;
 
 public class BoardsTests extends ApplicationManager {
@@ -31,13 +32,14 @@ public class BoardsTests extends ApplicationManager {
     }
 
     @Test
-    public void createBoardPositive(){
+    public void createBoardPositive(Method method){
         //int i = (int) ((System.currentTimeMillis()/1000)%3600);
         int i = new Random().nextInt(1000) + 1000;
 
         BoardDTO board = BoardDTO.builder()
                 .boardTitle("QA44-"+i)
                 .build();
+        logger.info(method.getName()+" starts with board title--> "+board.getBoardTitle());
         //HomePage homePage = new HomePage(getDriver());
         Assert.assertTrue(
                 /*homePage.clickBtnLogin()
@@ -60,7 +62,7 @@ public class BoardsTests extends ApplicationManager {
                 .isElementClickable_btnCreateSubmit(), "element is clickable");
     }
 
-    @Test
+   @Test
     public void deleteBoardPositiveTest(BoardDTO board){
         /*int i = new Random().nextInt(1000) + 1000;
 
@@ -76,8 +78,6 @@ public class BoardsTests extends ApplicationManager {
             Assert.assertTrue(personalBoardPage.deleteBoard(board).isTextPopUpPresent());
         }else {
             Assert.fail("board isn't create");
-        }
-        ;
-
+        };
     }
 }
