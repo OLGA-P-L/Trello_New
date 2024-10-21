@@ -27,7 +27,7 @@ public class BoardsPage extends BasePage{
         return this;
     }
     public PersonalBoardPage clickBtnCreateSubmitPositive(){
-pause(5);
+
         btnCreateSubmit.click();
         return new PersonalBoardPage(driver);
     }
@@ -35,5 +35,9 @@ pause(5);
     public BoardsPage clickBtnCreateSubmitNegative(){
         btnCreateSubmit.click();
         return this;
+    }
+
+    public boolean isElementClickable_btnCreateSubmit(){
+        return isElementClickable(btnCreateSubmit, 3);
     }
 }

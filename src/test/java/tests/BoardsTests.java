@@ -41,10 +41,11 @@ public class BoardsTests extends ApplicationManager {
                 .boardTitle("    ")
                 .build();
         HomePage homePage = new HomePage(getDriver());
-        homePage.clickBtnLogin()
+        Assert.assertFalse(homePage.clickBtnLogin()
                 .typeEmail(user)
                 .typePassword(user)
                 .typeBoardTitle(board)
-                .clickBtnCreateSubmitNegative();
+                .clickBtnCreateSubmitNegative()
+                .isElementClickable_btnCreateSubmit(), "element is clickable");
     }
 }
