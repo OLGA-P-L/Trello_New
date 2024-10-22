@@ -1,5 +1,6 @@
 package tests;
 
+import dataproviders.DataProviderBoards;
 import dto.BoardDTO;
 import dto.UserDTO;
 import manager.ApplicationManager;
@@ -39,7 +40,7 @@ public class BoardsTests extends ApplicationManager {
         BoardDTO board = BoardDTO.builder()
                 .boardTitle("QA44-"+i)
                 .build();
-        logger.info(method.getName()+" starts with board title--> "+board.getBoardTitle());
+        logger.info(method.getName() + " starts with board title--> " + board.getBoardTitle());
         //HomePage homePage = new HomePage(getDriver());
         Assert.assertTrue(
                 /*homePage.clickBtnLogin()
@@ -50,7 +51,7 @@ public class BoardsTests extends ApplicationManager {
                 .isTextInElementPresent_nameBoard(board.getBoardTitle()));
     }
 
-    @Test
+    @Test(dataProvider = "DPFile_deleteBoardPositiveTest",dataProviderClass = DataProviderBoards.class)
     public void createBoardNegative(){
 
         BoardDTO board = BoardDTO.builder()
@@ -62,7 +63,7 @@ public class BoardsTests extends ApplicationManager {
                 .isElementClickable_btnCreateSubmit(), "element is clickable");
     }
 
-   @Test
+    @Test(dataProvider = "DPFile_deleteBoardPositiveTest",dataProviderClass = DataProviderBoards.class)
     public void deleteBoardPositiveTest(BoardDTO board){
         /*int i = new Random().nextInt(1000) + 1000;
 
@@ -80,4 +81,6 @@ public class BoardsTests extends ApplicationManager {
             Assert.fail("board isn't create");
         };
     }
+
+
 }
