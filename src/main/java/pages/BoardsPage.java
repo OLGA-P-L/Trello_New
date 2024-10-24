@@ -19,7 +19,7 @@ public class BoardsPage extends BasePage{
     WebElement inputBoardTitle;
 
    @FindBy(xpath = "//button[@data-testid='create-board-submit-button']")
-    WebElement btnCreateSubmit;
+   WebElement btnCreateSubmit;
 
    /* @FindBy(xpath = "//*[text()='Create']")
     WebElement btnCreateSubmit;*/
@@ -33,7 +33,7 @@ public class BoardsPage extends BasePage{
         return this;
     }
     public PersonalBoardPage clickBtnCreateSubmitPositive(){
-pause(5000);
+pause(2000);
         btnCreateSubmit.click();
         return new PersonalBoardPage(driver);
     }
